@@ -2,6 +2,10 @@ const assert = require('assert');
 const path = require('path');
 const CleanWebpackOutputPlugin = require('../index');
 
+function resove(_path) {
+  return path.join(__dirname, _path);
+}
+
 describe('Clean', () => {
   describe('clean nothing', () => {
     it('nothing to clean', () => {
@@ -16,7 +20,7 @@ describe('Clean', () => {
   describe('clean single file', () => {
     it('clean single file', () => {
       let cleanWebpackOutputPlugin = new CleanWebpackOutputPlugin(
-        './_temp1/main.js'
+        resove('./_temp1/main.js')
       );
       let result = cleanWebpackOutputPlugin.apply();
     });
@@ -25,7 +29,7 @@ describe('Clean', () => {
   describe('clean dir', () => {
     it('clean dir', () => {
       let cleanWebpackOutputPlugin = new CleanWebpackOutputPlugin(
-        './_temp3/_nested'
+        resove('./_temp3/_nested')
       );
       let result = cleanWebpackOutputPlugin.apply();
     });
@@ -34,9 +38,9 @@ describe('Clean', () => {
   describe('clean multiple', () => {
     it('clean dir and files', () => {
       let cleanWebpackOutputPlugin = new CleanWebpackOutputPlugin([
-        './_temp2',
-        './_temp3',
-        './_temp1/foo.js',
+        resove('./_temp2'),
+        resove('./_temp3'),
+        resove('./_temp1/foo.js'),
       ]);
       let result = cleanWebpackOutputPlugin.apply();
     });

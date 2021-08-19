@@ -35,22 +35,18 @@ class CleanWebpackOutputPlugin {
 
   apply(compiler) {
     if (typeof compiler === 'undefined') {
-      this.remove(compiler);
+      this.remove();
       return;
     }
 
-    compiler.hooks.entryOption.tap(
-      'CleanWebpackOutputPlugin',
-      (compilation) => {
-        this.remove(compiler);
-      }
-    );
+    compiler.hooks.entryOption.tap('CleanWebpackOutputPlugin', () => {
+      this.remove(compiler);
+    });
   }
 
   remove(compiler) {
-    if (!compiler) return;
-
     if (!this.patterns) {
+      if (!compiler) return;
       removePath(compiler.outputPath);
       return;
     }
