@@ -1,0 +1,31 @@
+{
+  "name": "clean-webpack-output-plugin",
+  "version": "1.0.0",
+  "description": "A webpack plugin to remove your output files",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/index_spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangchi/clean-webpack-output-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "clean"
+  ],
+  "author": "Wang Chi <hiwangchi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wangchi/clean-webpack-output-plugin/issues"
+  },
+  "homepage": "https://github.com/wangchi/clean-webpack-output-plugin#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "fs-extra": "^10.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
